@@ -13,17 +13,23 @@ public class UC5{
         while (totalDays <= 20) {
             win = 0;
             loose =0;
+            stake = 100;
+            bet = 0;
 
-            while (win < 50 && loose < 50) {
+            while (stake > 50 && stake < 150) {
                 int random = (int) ((Math.random() * 10) % 2);
                 if (random == 1) {
+                    stake++;
                     win++;
                 } else {
-
+                    stake--;
                     loose++;
                 }
                 bet++;
+
             }
+            System.out.println("\nTotal bets made on day " +totalDays+ " are " +bet);
+            System.out.println("won bets " + win + " \nloosed bets " +loose);
             if(win > loose) {
                 System.out.println("Gambler won " +(win - loose) +"$ on day " + totalDays);
                 winDays++;
@@ -37,7 +43,8 @@ public class UC5{
             totalDays++;
 
         }
-        System.out.println("Total days won By gambler : " +winDays);
+
+        System.out.println("\nTotal days won By gambler : " +winDays);
         System.out.println("Total Amount won by Gambler in 20 days : " + totalWin + "$");
         System.out.println("Total days loosed By gambler : " +looseDays);
         System.out.println("Total Amount loosed by Gambler in 20 days : " + totalLoose + "$");
